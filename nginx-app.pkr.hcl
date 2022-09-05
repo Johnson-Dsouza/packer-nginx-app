@@ -29,16 +29,21 @@ build {
     "source.amazon-ebs.nginx-app"
   ]
 
+  provisioner "file" {
+    source      = "Torreswebsite.zip"
+    destination = "/tmp/Torreswebsite.zip"
+  }
+
+  provisioner "file" {
+    source      = "server"
+    destination = "/tmp/server"
+  }
+
   provisioner "shell" {
     script = "app.sh"
   }
 
-  provisioner "file" {
-    source      = "index.html"
-    destination = "/tmp/"
-  }
-
   provisioner "shell" {
-    inline = ["sudo cp /tmp/index.html /var/www/html"]
+    inline = ["sudo cp -r /tmp/Torreswebsite /var/www/", "sudo cp /tmp/server /etc/nginx/sites-enabled"]
   }
 }
