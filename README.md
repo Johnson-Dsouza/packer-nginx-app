@@ -1,6 +1,6 @@
 # Nginx-Torreswebsite-Packer
 
-**PREREQUISITE:**
+**PREREQUISITES:**
 - AWS CLI
 - Packer Installed
 
