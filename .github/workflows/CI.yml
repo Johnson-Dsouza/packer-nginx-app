@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Ckeckout Repository
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Validate Template
         uses: hashicorp/packer-github-actions@master
