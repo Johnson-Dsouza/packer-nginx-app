@@ -2,7 +2,7 @@
 
 **PREREQUISITES:**
 - AWS CLI
-- Packer Installed
+- Packer Installed.
 
 **TO SETUP THE APPLICATION:**
 1. Grab the source code from the GitLab repository.
