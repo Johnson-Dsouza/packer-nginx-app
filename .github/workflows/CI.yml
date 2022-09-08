@@ -22,7 +22,8 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-  
+    needs: [validate]
+
     steps:
       - name: Build Artifact
         uses: hashicorp/packer-github-actions@master
@@ -41,6 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    needs: [validate, build]
   
     steps:
       - name: Slack Notification
