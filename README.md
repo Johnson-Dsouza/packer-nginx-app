@@ -1,8 +1,8 @@
 # Nginx-Torreswebsite-Packer
 
 **PREREQUISITES:**
-- AWS CLI
-- Packer Installed
+- AWS CLI.
+- Packer Installed.
 
 **TO SETUP THE APPLICATION:**
 1. Grab the source code from the GitLab repository.
