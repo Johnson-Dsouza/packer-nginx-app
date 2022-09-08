@@ -14,7 +14,7 @@ jobs:
       - name: Ckeckout Repository
         uses: actions/checkout@v3
 
-      - name: Init Template
+      - name: Initialize Template
         uses: hashicorp/packer-github-actions@master
         with:
           command: init
