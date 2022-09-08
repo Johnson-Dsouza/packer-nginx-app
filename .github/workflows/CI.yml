@@ -15,6 +15,11 @@ jobs:
       - name: Ckeckout Repository
         uses: actions/checkout@v3
 
+      - name: Fix Template
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: fix
+
       - name: Validate Template
         uses: hashicorp/packer-github-actions@master
         with:
