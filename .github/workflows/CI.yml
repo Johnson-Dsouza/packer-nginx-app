@@ -11,6 +11,13 @@ jobs:
     
 
     steps:
+      - uses: act10ns/slack@v1
+        with:
+          status: starting
+          channel: '#workflows'
+          message: Starting Docker Build and Push...
+        if: always()
+
       - name: Ckeckout Repository
         uses: actions/checkout@v3
 
