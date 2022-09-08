@@ -6,19 +6,12 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  validate:
     runs-on: ubuntu-latest
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
     steps:
       - name: Ckeckout Repository
         uses: actions/checkout@v3
-
-      - name: Fix Template
-        uses: hashicorp/packer-github-actions@master
-        with:
-          command: fix
 
       - name: Validate Template
         uses: hashicorp/packer-github-actions@master
@@ -27,6 +20,29 @@ jobs:
           arguments: -syntax-only
           target: nginx-app.pkr.hcl
 
+  build:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Build Artifact
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: build
+          arguments: "-color=false -on-error=abort"
+          target: nginx-app.pkr.hcl
+          working_directory: .
+        env:
+          PACKER_LOG: 1
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+
+
+  updateSlack:
+    runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  
+    steps:
       - name: Slack Notification
         uses: act10ns/slack@v1
         with:
