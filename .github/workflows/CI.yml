@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ "main" ]
 
-  workflow_dispatch:
+  #workflow_dispatch:
 
 jobs:
   build:
@@ -14,7 +14,15 @@ jobs:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
     steps:
+      - name: Ckeckout Repository
       - uses: actions/checkout@v3
+
+      - name: Validate Template
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: validate
+          arguments: -syntax-only
+          target: nginx-app.pkr.hcl
 
       - name: Slack Notification
         uses: act10ns/slack@v1
