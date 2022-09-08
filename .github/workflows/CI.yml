@@ -11,12 +11,15 @@ jobs:
     
 
     steps:
-      - uses: act10ns/slack@v1
+      - name: Starting Slack Notification
+        uses: act10ns/slack@v1
         with:
-          status: starting
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
           channel: '#githubaction-test'
-          message: Starting the cicd pipeline....
         if: always()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: Ckeckout Repository
         uses: actions/checkout@v3
