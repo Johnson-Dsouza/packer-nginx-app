@@ -14,8 +14,8 @@ jobs:
       - uses: act10ns/slack@v1
         with:
           status: starting
-          channel: '#workflows'
-          message: Starting Docker Build and Push...
+          channel: '#githubaction-test'
+          message: Starting the cicd pipeline....
         if: always()
 
       - name: Ckeckout Repository
