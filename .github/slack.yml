@@ -22,13 +22,6 @@ fields:
   - title: Git Ref
     value: "{{ref}} ({{refType}})"
     short: true
-  - title: Run ID
-    value: |-
-      <{{workflowRunUrl}}|{{runId}}>
-    short: true
-  - title: Run Number
-    value: "{{runNumber}}"
-    short: true
   - title: Actor
     value: "{{actor}}"
     short: true
