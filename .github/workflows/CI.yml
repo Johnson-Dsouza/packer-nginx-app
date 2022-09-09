@@ -12,7 +12,6 @@ jobs:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
    
     steps:
-      - name: Starting Slack Notification
       - uses: actions/checkout@v2
       - uses: ./
         with:
