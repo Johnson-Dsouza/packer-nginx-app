@@ -26,7 +26,7 @@ fields:
     value: "{{jobStatus}}"
     short: true
   - title: Environment
-    value: "{{ env }}"
+    value: "{{ env.* }}"
     short: true
 
 footer: >-
