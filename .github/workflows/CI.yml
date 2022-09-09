@@ -9,14 +9,14 @@ jobs:
   Build:
     runs-on: ubuntu-latest
    
- 
     steps:
       - name: Starting Slack Notification
-        uses: act10ns/slack@v1
+        uses: 8398a7/action-slack@v3
         with:
           status: starting
           channel: '#githubaction-test'
           message: Packer workflow initied
+          fields: repo, author
         if: always()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -55,7 +55,6 @@ jobs:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
           channel: '#githubaction-test'
-          fields: repo, eventName, author
         if: always()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
