@@ -28,6 +28,9 @@ fields:
   - title: Job Status
     value: "{{jobStatus}}"
     short: true
+  - title: Envirnmnet
+    value: "${{ github.event.inputs.environment }}"
+    short: true
 
 footer: >-
   <{{repositoryUrl}}|{{repositoryName}}> {{workflow}} #{{runNumber}}
