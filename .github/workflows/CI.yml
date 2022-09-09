@@ -20,4 +20,4 @@ jobs:
           status: ${{ job.status }}
           channel: '#githubaction-test'
           config: .github/slack.yml
-        # if: always()
+        if: always()
