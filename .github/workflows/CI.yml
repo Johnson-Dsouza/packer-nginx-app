@@ -22,4 +22,7 @@ jobs:
         # if: always()
 
       - name: test
-        run: cat .github/slack.yml
+        run: ls -al 
+
+      - name: test2
+        run: ls -al .github
