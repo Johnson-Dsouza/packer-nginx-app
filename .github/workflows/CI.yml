@@ -20,3 +20,6 @@ jobs:
           config: .github/slack.yml
           # message: Test
         # if: always()
+
+      - name: test
+        run: cat .github/slack.yml
