@@ -30,8 +30,6 @@ jobs:
 
           fallback: |-
             [Github] {{workflow}} #{{runNumber}} {{jobName}} is {{jobStatus}}         
-          
-          message: Packer workflow initied
         if: always()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
