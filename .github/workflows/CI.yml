@@ -15,38 +15,26 @@ jobs:
         with:
           status: starting
           channel: '#githubaction-test'
+          pretext: Triggered via {{eventName}} by {{actor}} {{ref}} `{{defRef}}`
+          title: Github Actions
+          
+          text: |
+             *<{{workflowRunUrl}}|Workflow _{{workflow}}_ job _{{jobName}}_ triggered by _{{eventName}}_ is _{{jobStatus}}_>* for <{{refUrl}}|`{{ref}}`>
+              {{#if description}}<{{diffUrl}}|`{{diffRef}}`> - {{description}}{{/if}}
+              {{#if payload.commits}}
+              *Commits*
+              {{#each payload.commits}}
+              <{{this.url}}|`{{truncate this.id 8}}`> - {{this.message}}
+              {{/each}}
+              {{/if}}
+
+          fallback: |-
+            [Github] {{workflow}} #{{runNumber}} {{jobName}} is {{jobStatus}}         
+          
           message: Packer workflow initied
         if: always()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
-      # - name: Ckeckout Repository
-      #   uses: actions/checkout@v3
- 
-      # - name: Initialize Template
-      #   uses: hashicorp/packer-github-actions@master
-      #   with:
-      #     command: init
-      #     target: nginx-app.pkr.hcl
- 
-      # - name: Validate Template
-      #   uses: hashicorp/packer-github-actions@master
-      #   with:
-      #     command: validate
-      #     arguments: -syntax-only
-      #     target: nginx-app.pkr.hcl
- 
-      # - name: Build Artifact
-      #   uses: hashicorp/packer-github-actions@master
-      #   with:
-      #     command: build
-      #     arguments: "-color=false -on-error=abort"
-      #     target: nginx-app.pkr.hcl
-      #     working_directory: .
-      #   env:
-      #     PACKER_LOG: 1
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
  
       - name: Slack Notification
         uses: act10ns/slack@v1
