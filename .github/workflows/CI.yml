@@ -13,10 +13,9 @@ jobs:
       - name: Starting Slack Notification
         uses: act10ns/slack@v1
         with:
-          status: starting
+          status: ${{ job.status }}
           channel: '#githubaction-test'
           config: .github/config/slack.yml
-        if: always()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
  
