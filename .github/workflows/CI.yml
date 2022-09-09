@@ -13,7 +13,11 @@ jobs:
    
     steps:
       - uses: actions/checkout@v2
+<<<<<<< HEAD
     
+=======
+      # - uses: ./
+>>>>>>> e641296397605934bcb044c08e7938e50f14b351
       - uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
