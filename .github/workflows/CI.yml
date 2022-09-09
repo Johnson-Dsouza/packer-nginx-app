@@ -18,6 +18,7 @@ jobs:
           status: ${{ job.status }}
           channel: '#githubaction-test'
           config: .github/slack.yml
+        if: always()
       
       - name: Slack Notification
         uses: act10ns/slack@v1
