@@ -15,7 +15,7 @@ jobs:
         with:
           status: ${{ job.status }}
           channel: '#githubaction-test'
-          config: .github/slack.yml
+          config: .github/config/slack.yml
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
  
