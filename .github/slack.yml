@@ -23,10 +23,10 @@ fields:
     value: "{{actor}}"
     short: true
   - title: Job Status
-    value: "{{jobStatus}}"
+    value: starting
     short: true
   - title: Environment
-    value: "{{ env. }}"
+    value: "{{ env }}"
     short: true
 
 footer: >-
