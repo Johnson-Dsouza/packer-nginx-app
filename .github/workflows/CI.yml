@@ -13,9 +13,11 @@ jobs:
    
     steps:
       - uses: actions/checkout@v2
-      - uses: act10ns/slack@v1
+
+      - name: Starting
+        uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
-          # channel: '#githubaction-test'
+          channel: '#githubaction-test'
           config: .github/slack.yml
-        if: always()
+        # if: always()
