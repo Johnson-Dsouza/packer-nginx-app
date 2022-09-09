@@ -14,3 +14,5 @@
 `packer validate .`
 1. Build Packer image:
 `packer build nginx-app.pkr.hcl`
+
+Thank you
