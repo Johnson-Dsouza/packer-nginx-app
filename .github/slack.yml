@@ -28,7 +28,7 @@ fields:
   - title: Job Status
     value: "{{jobStatus}}"
     short: true
-  - title: Envirnmnet
+  - title: Environment
     value: "{{ github.event.inputs.environment }}"
     short: true
 
