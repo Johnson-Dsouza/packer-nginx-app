@@ -29,7 +29,7 @@ fields:
     value: "{{jobStatus}}"
     short: true
   - title: Envirnmnet
-    value: "${{ github.event.inputs.environment }}"
+    value: "{{ github.event.inputs.environment }}"
     short: true
 
 footer: >-
