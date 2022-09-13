@@ -23,13 +23,13 @@ jobs:
         if: always()
         
       - name: Run a multi-line script
-        id: Run a multi-line script
+        id: multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
           
       - name: Run a one-line script
-        id: Run a one-line script
+        id: one-line script
         run: echo Hello, world!! -Test 2
         
       - name: Ending
