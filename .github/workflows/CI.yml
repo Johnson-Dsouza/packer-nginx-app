@@ -19,7 +19,7 @@ jobs:
         with:
           status: starting
           channel: '#githubaction-test'
-          config: .github/slack.yml
+#           config: .github/slack.yml
         if: always()
 
       - name: Ending
