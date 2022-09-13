@@ -21,7 +21,7 @@ fallback: |-
 fields:
   - title: Job Steps
     value: "{{#each jobSteps}}{{icon this.outcome}} {{@key}}\n{{/each}}"
-    short: true
+    short: false
   - title: Workflow
     value: "<{{workflowUrl}}|{{workflow}}>"
     short: true
