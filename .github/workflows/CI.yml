@@ -24,11 +24,12 @@ jobs:
         
       - name: Validate Template
         uses: hashicorp/packer-github-actions@master
+        id: validate
         with:
           command: validate
           arguments: -syntax-only
           target: nginx-app.pkr.hcl
-        id: validate
+        
 
       - name: Ending
         uses: act10ns/slack@v1
