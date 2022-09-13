@@ -20,7 +20,7 @@ fallback: |-
 
 fields:
   - title: Job Steps
-    value: "if (status.toLowerCase() === 'success') return ':heavy_check_mark:'"
+    value: ":white_check_mark:"
     short: false
   - title: Workflow
     value: "<{{workflowUrl}}|{{workflow}}>"
