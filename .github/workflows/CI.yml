@@ -12,7 +12,8 @@ jobs:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
    
     steps:
-      - uses: actions/checkout@v2
+      - name: ckeckout source code
+        uses: actions/checkout@v2
 
       - name: Starting Notification 
         uses: act10ns/slack@v1
