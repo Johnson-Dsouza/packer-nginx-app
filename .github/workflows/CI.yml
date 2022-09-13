@@ -14,13 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Starting
+      - name: Starting Notification 
         uses: act10ns/slack@v1
         with:
           status: starting
           channel: '#githubaction-test'
-          steps: ${{ toJson(steps) }}
-          config: .github/slack.yml
+          message: Starting Build and Push...
         if: always()
         
       - name: Validate Template
