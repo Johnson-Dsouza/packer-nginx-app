@@ -22,13 +22,6 @@ jobs:
           message: Starting Build and Push...
         if: always()
         
-      - name: Validate Template
-        uses: hashicorp/packer-github-actions@master
-        with:
-          command: validate
-          arguments: -syntax-only
-          target: nginx-app.pkr.hcl
-        
 
       - name: Ending
         uses: act10ns/slack@v1
