@@ -22,11 +22,11 @@ jobs:
           message: Starting Build and Push...
         if: always()
         
-      - name: Build
+      - name: Run a multi-line script
         id: build
         run: |
-          npm install
-          npm run build
+          echo Add other actions to build,
+          echo test, and deploy your project.
           
       - name: Run a one-line script
         id: test
