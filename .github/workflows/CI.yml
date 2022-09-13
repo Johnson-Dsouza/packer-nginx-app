@@ -34,7 +34,6 @@ jobs:
         uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
-          channel: '#githubaction-test'
           steps: ${{ toJson(steps) }}
-          config: .github/slack.yml
+          config: .github/slack-config.yml
         if: always()
