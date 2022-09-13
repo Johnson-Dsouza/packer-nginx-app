@@ -24,7 +24,6 @@ jobs:
         
       - name: Validate Template
         uses: hashicorp/packer-github-actions@master
-        id: validate
         with:
           command: validate
           arguments: -syntax-only
