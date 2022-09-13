@@ -20,8 +20,8 @@ fallback: |-
 
 fields:
   - title: Job Steps
-    value: ":white_check_mark:"
-    short: false
+    value: "{{#each jobSteps}}{{icon this.outcome}} {{@key}}\n{{/each}}"
+    short: true
   - title: Workflow
     value: "<{{workflowUrl}}|{{workflow}}>"
     short: true
