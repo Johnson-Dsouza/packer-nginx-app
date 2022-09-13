@@ -14,14 +14,6 @@ jobs:
     steps:
       - name: ckeckout source code
         uses: actions/checkout@v2
-
-      - name: Starting Notification 
-        uses: act10ns/slack@v1
-        with:
-          status: starting
-          channel: '#githubaction-test'
-          message: Starting Build and Push...
-        if: always()
         
       - name: Validate Template
         uses: hashicorp/packer-github-actions@master
