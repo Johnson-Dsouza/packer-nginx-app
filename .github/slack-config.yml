@@ -1,6 +1,3 @@
-username: GitHub-CI
-icon_url: https://octodex.github.com/images/mona-the-rivetertocat.png
-
 pretext: Triggered via {{eventName}} by {{actor}} {{or action "action"}} {{ref}} `{{diffRef}}`
 title: GitHub Actions
 title_link: https://support.github.com
@@ -12,9 +9,6 @@ fallback: |-
   [GitHub] {{workflow}} #{{runNumber}} {{jobName}} is {{jobStatus}}
 
 fields:
-  - title: Job Steps
-    value: "{{#each jobSteps}}{{icon this.outcome}} {{@key}}\n{{/each}}"
-    short: false
   - title: Workflow
     value: "<{{workflowUrl}}|{{workflow}}>"
     short: true
@@ -37,16 +31,3 @@ fields:
 
 footer: >-
   <{{repositoryUrl}}|{{repositoryName}}> {{workflow}} #{{runNumber}}
-
-colors:
-  success: '#5DADE2'
-  failure: '#884EA0'
-  cancelled: '#A569BD'
-  default: '#7D3C98'
-
-icons:
-  success: ':white_check_mark:'
-  failure: ':grimacing:'
-  cancelled: ':x:'
-  skipped: ':heavy_minus_sign:'
-  default: ':interrobang:'
