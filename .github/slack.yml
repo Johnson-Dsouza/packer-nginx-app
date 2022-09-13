@@ -20,8 +20,7 @@ fallback: |-
 
 fields:
   - title: Job Steps
-    value: "{{#each jobSteps}}{{#ifneq this.outcome 'skipped'}}{{icon this.outcome}}  {{@key}}
-        {{/ifneq}}{{/each}}"
+    value: "{{#each jobSteps}}{{icon this.outcome}} {{@key}}\n{{/each}}"
     short: false
   - title: Workflow
     value: "<{{workflowUrl}}|{{workflow}}>"
@@ -42,8 +41,6 @@ fields:
   - title: Job Status
     value: "{{jobStatus}}"
     short: true
-    
- 
 
 footer: >-
   <{{repositoryUrl}}|{{repositoryName}}> {{workflow}} #{{runNumber}}
@@ -53,3 +50,10 @@ colors:
   failure: '#884EA0'
   cancelled: '#A569BD'
   default: '#7D3C98'
+
+icons:
+  success: ':white_check_mark:'
+  failure: ':grimacing:'
+  cancelled: ':x:'
+  skipped: ':heavy_minus_sign:'
+  default: ':interrobang:'
