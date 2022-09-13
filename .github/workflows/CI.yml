@@ -22,6 +22,14 @@ jobs:
           steps: ${{ toJson(steps) }}
           config: .github/slack.yml
         if: always()
+        
+      - name: Validate Template
+        id: validate
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: validate
+          arguments: -syntax-only
+          target: nginx-app.pkr.hcl
 
       - name: Ending
         uses: act10ns/slack@v1
