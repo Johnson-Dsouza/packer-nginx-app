@@ -22,12 +22,11 @@ jobs:
           message: Starting Build and Push...
         if: always()
         
-      - name: Initialize Template
-        uses: hashicorp/packer-github-actions@master
-        with:
-          command: init
-          target: nginx-app.pkr.hcl
-        id: Init
+      - name: Build
+        id: build
+        run: |
+          npm install
+          npm run build
         
       - name: Ending
         uses: act10ns/slack@v1
