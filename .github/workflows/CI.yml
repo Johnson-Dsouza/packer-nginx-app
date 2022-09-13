@@ -15,6 +15,12 @@ jobs:
       - name: ckeckout source code
         uses: actions/checkout@v2
         
+      - name: Starting
+        uses: act10ns/slack@v1
+        with: 
+          status: ${{ job.status }}
+        if: always()
+        
       - name: Validate Template
         uses: hashicorp/packer-github-actions@master
         with:
