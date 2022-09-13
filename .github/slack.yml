@@ -50,10 +50,3 @@ colors:
   failure: '#884EA0'
   cancelled: '#A569BD'
   default: '#7D3C98'
-
-icons:
-  success: ':white_check_mark:'
-  failure: ':grimacing:'
-  cancelled: ':x:'
-  skipped: ':heavy_minus_sign:'
-  default: ':interrobang:'
