@@ -28,5 +28,6 @@ jobs:
         with:
           status: ${{ job.status }}
           channel: '#githubaction-test'
+          steps: ${{ toJson(steps) }}
           config: .github/slack.yml
         if: always()
