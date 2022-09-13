@@ -41,6 +41,31 @@ fields:
   - title: Job Status
     value: "{{jobStatus}}"
     short: true
+    
+ # fields
+  - type: section
+    fields:
+    - type: mrkdwn
+      text: |-
+        *Job Steps*
+        {{#each jobSteps}}{{#ifneq this.outcome 'skipped'}}{{icon this.outcome}}  {{@key}}
+        {{/ifneq}}{{/each}}
+  - type: section
+    fields:
+    - type: mrkdwn
+      text: "*Workflow*\n<{{{workflowUrl}}}|{{workflow}}>"
+    - type: mrkdwn
+      text: "*Git Ref*\n{{ref}} ({{refType}})"
+    - type: mrkdwn
+      text: |-
+        *Run ID*
+        <{{workflowRunUrl}}|{{runId}}>
+    - type: mrkdwn
+      text: "*Run Number*\n{{runNumber}}"
+    - type: mrkdwn
+      text: "*Actor*\n{{actor}}"
+    - type: mrkdwn
+      text: "*Job Status*\n{{jobStatus}}"
 
 footer: >-
   <{{repositoryUrl}}|{{repositoryName}}> {{workflow}} #{{runNumber}}
