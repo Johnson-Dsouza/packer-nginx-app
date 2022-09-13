@@ -19,8 +19,8 @@ jobs:
         with:
           status: starting
           channel: '#githubaction-test'
-          message: Starting Build and Push...
-#           config: .github/slack.yml
+          steps: ${{ toJson(steps) }}
+          config: .github/slack.yml
         if: always()
 
       - name: Ending
