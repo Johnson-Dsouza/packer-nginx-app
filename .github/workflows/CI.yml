@@ -18,7 +18,7 @@ jobs:
       - name: Starting
         uses: act10ns/slack@v1
         with: 
-          status: ${{ job.status }}
+          status: starting
           config: .github/slack.yml
         if: always()
         
