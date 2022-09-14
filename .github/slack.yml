@@ -43,7 +43,7 @@ footer: >-
   <{{repositoryUrl}}|{{repositoryName}}> {{workflow}} #{{runNumber}}
 
 colors:
-  success: '#009933'
-  failure: '#ff0000'
-  cancelled: '#ff9900'
-  default: '#000099'
+  success: '#006600'  #Green
+  failure: '#00cc00'  #Red
+  cancelled: '#ffff00'  #Yellow
+  default: '#0000ff'  #Blue
