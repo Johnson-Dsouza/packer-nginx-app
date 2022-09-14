@@ -19,20 +19,17 @@ jobs:
         uses: act10ns/slack@v1
         with: 
           status: ${{ job.status }}
-          message: Starting Build and Push...
+          config: .github/slack.yml
         if: always()
         
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          
-      - name: Run a one-line script
-        run: echo Hello, world!! -Test 2
-        
+                  
       - name: Ending
         uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
-          config: .github/slack-config.yml
+          config: .github/slack.yml
         if: always()
