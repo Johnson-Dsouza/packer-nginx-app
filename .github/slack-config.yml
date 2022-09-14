@@ -31,11 +31,3 @@ fields:
 
 footer: >-
   <{{repositoryUrl}}|{{repositoryName}}> {{workflow}} #{{runNumber}}
-
-
-colors:
-  success: '#5DADE2'
-  failure: '#884EA0'
-  cancelled: '#A569BD'
-  default: '#7D3C98'
-  
