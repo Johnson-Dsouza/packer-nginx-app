@@ -5,31 +5,60 @@ on:
   pull_request:
     branches: [ "main" ]
  
-jobs:
-  deploy_image:
-    runs-on: ubuntu-latest
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+# jobs:
+#   deploy_image:
+#     runs-on: ubuntu-latest
+#     env:
+#       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
    
+    # steps:
+env:
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: ckeckout source code
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+    - uses: ./
+      with:
+        webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+        status: ${{ github.event.workflow_run.conclusion }}
+        channel: '#githubaction-test'
+        config: .github/slack.yml
+      if: always()
+
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./
+      with:
+        status: ${{ github.event.workflow_run.conclusion }}
+        channel: '#githubaction-test'
+        config: .github/slack.yml
+      if: always()
+      
+      # - name: ckeckout source code
+      #   uses: actions/checkout@v2
         
-      - name: Starting
-        uses: act10ns/slack@v1
-        with: 
-          status: ${{ job.status }}
-          config: .github/slack.yml
-        if: always()
+      # - name: Starting
+      #   uses: act10ns/slack@v1
+      #   with: 
+      #     status: ${{ job.status }}
+      #     config: .github/slack.yml
+      #   if: always()
         
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      # - name: Run a multi-line script
+      #   run: |
+      #     echo Add other actions to build,
+      #     echo test, and deploy your project.
                   
-      - name: Ending
-        uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-          config: .github/slack.yml
-        if: always()
+      # - name: Ending
+      #   uses: act10ns/slack@v1
+      #   with:
+      #     status: ${{ job.status }}
+      #     config: .github/slack.yml
+      #   if: always()
