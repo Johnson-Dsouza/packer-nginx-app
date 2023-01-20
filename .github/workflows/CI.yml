@@ -21,7 +21,7 @@ jobs:
         if: always()
         
       - name: Run a multi-line script
-        id: test
+        id: build
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
