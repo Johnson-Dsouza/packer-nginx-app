@@ -2,8 +2,6 @@ name: Testing slack message
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
  
 jobs:
   test-jobs:
@@ -23,6 +21,7 @@ jobs:
         if: always()
         
       - name: Run a multi-line script
+        id: test
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
