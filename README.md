@@ -5,7 +5,7 @@
 - Packer Installed
 
 **TO SETUP THE APPLICATION:**
-1. Grab the source code from the GitLab repository.
+1. Grab the source code from the Github repository.
 1. Initialize your Packer configuration:
 `packer init .`
 1. Format your template:
