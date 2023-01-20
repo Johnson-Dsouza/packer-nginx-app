@@ -13,9 +13,9 @@ source "amazon-ebs" "nginx-app" {
   #which ami to use as the base
 
   ami_name      = "nginx-app"
-  source_ami    = "ami-052efd3df9dad4825"
+  source_ami    = "ami-06984ea821ac0a879"
   instance_type = "t2.micro"
-  region        = "us-east-1"
+  region        = "ap-south-1"
   ssh_username  = "ubuntu"
 }
 
