@@ -1,10 +1,10 @@
-name: Testing slack message
+name: Packer CICD 
 on:
   push:
     branches: [ "main" ]
  
 jobs:
-  packer-ci:
+  packer-cicd:
     runs-on: ubuntu-latest
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -22,23 +22,23 @@ jobs:
 
       - name: Setup packer
         uses: hashicorp/setup-packer@main
-        id: setup
+        id: packer-setup
         with:
           version: "1.8.3" # or `latest`
 
       - name: Packer init
-        id: init
+        id: packer-init
         run: "packer init ."
 
       - name: Packer validate
-        id: validate
+        id: packer-validate
         run: "packer validate ."
 
       - name: Packer build
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY }}
-        id: build
+        id: packer-build
         run: "packer build nginx-app.pkr.hcl"
                   
       - name: Ending slack alert
