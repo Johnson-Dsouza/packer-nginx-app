@@ -9,11 +9,6 @@ text: |
   *<{{workflowRunUrl}}|Workflow _{{workflow}}_ job _{{jobName}}_ triggered by _{{eventName}}_ is _{{jobStatus}}_>* for <{{refUrl}}|`{{ref}}`>
   {{#if description}}<{{diffUrl}}|`{{diffRef}}`> - {{description}}{{/if}}
   {{#if payload.commits}}
-  *Commits*
-  {{#each payload.commits}}
-  <{{this.url}}|`{{truncate this.id 8}}`> - {{this.message}}
-  {{/each}}
-  {{/if}}
 
 fallback: |-
   [GitHub] {{workflow}} #{{runNumber}} {{jobName}} is {{jobStatus}}
@@ -27,13 +22,6 @@ fields:
     short: true
   - title: Git Ref
     value: "{{ref}} ({{refType}})"
-    short: true
-  - title: Run ID
-    value: |-
-      <{{workflowRunUrl}}|{{runId}}>
-    short: true
-  - title: Run Number
-    value: "{{runNumber}}"
     short: true
   - title: Actor
     value: "{{actor}}"
