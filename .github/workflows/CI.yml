@@ -38,12 +38,12 @@ jobs:
         id: packer-validate
         run: "packer validate ."
 
-      # - name: Packer build
-      #   env:
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY }}
-      #   id: packer-build
-      #   run: "packer build nginx-app.pkr.hcl"
+      - name: Packer build
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY }}
+        id: packer-build
+        run: "packer build nginx-app.pkr.hcl"
                   
       - name: Ending slack alert
         uses: act10ns/slack@v1
