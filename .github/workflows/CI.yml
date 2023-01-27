@@ -19,12 +19,6 @@ jobs:
           status: starting
           config: .github/slack.yml
         if: always()
-        
-      # - name: Run a multi-line script
-      #   id: build
-      #   run: |
-      #     echo Add other actions to build,
-      #     echo test, and deploy your project.
 
       - name: Setup packer
         uses: hashicorp/setup-packer@main
