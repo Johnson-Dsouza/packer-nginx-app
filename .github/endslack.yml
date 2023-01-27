@@ -29,10 +29,10 @@ footer: >-
   <{{repositoryUrl}}|{{repositoryName}}> {{workflow}} #{{runNumber}}
 
 colors:
-  success: '#5DADE2'
-  failure: '#884EA0'
-  cancelled: '#A569BD'
-  default: '#7D3C98'
+  success: '#33cc33'
+  failure: '#ff0000'
+  cancelled: '#ffff00'
+  default: '#0000ff'
 
 icons:
   success: ':white_check_mark:'
